@@ -154,7 +154,7 @@
 			<div class="container">
 				<ol>
 					<li class="active"><a href="order_form_01.html#form_step_01"><span class="num">1</span><span>確認需求</span></a></li>
-					<li><a href="order_form_02.html#form_step_02"><span class="num">2</span><span>選擇方案</span></a></li>
+					<li class="active"><a href="order_form_02.html#form_step_02"><span class="num">2</span><span>選擇方案</span></a></li>
 					<li><a href="order_form_03.html#form_step_03"><span class="num">3</span><span>支付款項</span></a></li>
 					<li><a href="order_form_04.html#form_step_04"><span class="num">4</span><span>填寫資料</span></a></li>
 					<li><a href="order_form_05.html#form_step_05"><span class="num">5</span><span>審查資格</span></a></li>
@@ -165,77 +165,156 @@
 	
 	
 
+	<!-- ----------------------------------------------------------------------------------------------------------------- -->	
 	
-	
-	<!-- STEP 01: 區塊開始 -->
-	<section id="form_step_01" class="form_step_01">
+	<!-- STEP 02: 區塊開始 -->
+	<section id="form_step_02" class="form_step_02">
 		<div class="container">
 		
-			<h2>請確認您的需求</h2>
-			
+			<h2>請選擇方案</h2>
 			<div class="tab-container">
-				<input type="radio" name="role" id="artist" value="artist" checked />
-				<label for="artist"><h3>藝術創作者</h3></label>
+				<input type="radio" name="plan" id="plan_a" value="plan_a" checked />
+				<label for="plan_a"><h3>行銷特惠方案</h3></label>
 			
-				<input type="radio" name="role" id="buyer" value="buyer" />
-				<label for="buyer"><h3>收藏家</h3></label>
+				<input type="radio" name="plan" id="plan_b" value="plan_b" />
+				<label for="plan_b"><h3>單件掃描管理方案：畫作</h3></label>
 				
-				<input type="radio" name="role" id="collaborator" value="collaborator" />
-				<label for="collaborator"><h3>我想談合作</h3></label>
-			
+				<input type="radio" name="plan" id="plan_c" value="plan_c" />
+				<label for="plan_c"><h3>立體雕塑</h3></label>
+				
 				<div class="panels-wrapper">
-				<div class="tab-panel panel-artist">
-					<h3>約定約款事項：</h3>
-					<ol>
-						<li>加入本服務即視為同意授權作品之圖像供 波翼藝術中心 用於管理與展示用途。但此授權不包含著作權及任何形式的商業使用。如需進行其他商業授權，雙方須另行簽訂授權合約。</li>
-						<li>虛擬藝術展間維護期為交付後起算一年，包含金流設定與預約鑒賞功能，線上交易金 流手續費 15%。</li>
-						<li>加入本服務者須保證所提供予本公司的所有實體作品與資料均不侵犯任何第三方權益，亦未涉及任何違法情事。若日後因此產生侵權或相關法律責任，均由當事人自行承擔，本公司不負任何連帶責任。</li>
-					</ol>					
-					<label for="agree_artist_chkbox">
-						<input type="checkbox" id="agree_artist_chkbox" />
-						<span>我已閱讀並同意服務條款</span>
-					</label>
-					<div class="btn_wrap">
-						<a href="order_form_02.html#form_step_02">
-							<button type="button" class="btn_primary">同意並下一步</button>
-						</a>
+					<div class="tab-panel panel-plan_a memberplan">						
+						<h3></h3>
+						<div class="content">
+							<div class="item A">
+								<div class="title">
+									<h2>A方案</h2>
+									<h3><span class="currency">NTD</span><span class="money">$19,800</span><span class="unit">(未稅)</span></h3>
+								</div>					
+								<div class="info">							
+									<div class="area area_a">
+										<ul>
+											<li><h4><span class="big">15</span>
+											<span>件掃描含七國語言語音導覽</span></h4></li>
+											<li><h4>
+												<span class="big">1</span>
+												<span>間3DVR藝廊</h4>
+											</li>
+										</ul>							
+									</div>						
+									<div class="area area_c market_wrap">
+										<h3>行銷方案</h3>
+										<ul>
+											<li><h4><span>波翼 FB 宣傳<span class="big">1</span>則</span></h4></li>
+											<li><h4><span>限時動態 宣傳<span class="big">1</span>則</span></h4>
+											</li>
+											<li><h4><span>Line@ 靜態訊息<span class="big">1</span>則</span></h4>
+											</li>
+											<li><h4><span>波翼快訊<span class="big">1</span>則</span></h4>
+											</li>								
+										</ul>					
+									</div>				
+								</div>
+								<div class="btn_wrap">
+										<a href="form_step_03.html#form_step_03">
+											<button class="btn_primary">購買</button>
+										</a>
+								</div>
+							</div>
+							<div class="item B">
+								<div class="title">
+									<h2>B方案</h2>
+									<h3><span class="currency">NTD</span><span class="money">$55,800</span><span class="unit">(未稅)</span></h3>									
+								</div>					
+									<div class="info">							
+										<div class="area area_a">
+											<ul>
+												<li><h4><span class="big">50</span>
+												<span>件掃描含七國語言語音導覽(均價<span class="small">1,116</span>件)</span></h4></li>
+											<li><h4>
+												<span class="big">1</span>
+												<span>間3DVR藝廊(<span class="small">60</span>件)</span></h4>
+											</li>							
+											</ul>							
+										</div>
+										<div class="area area_c market_wrap">
+											<h3>行銷方案</h3>
+											<ul>	
+												<li><h4><span>形象照拍攝<span class="big">2</span>張</span></h4>
+												</li>
+												<li class="sub-line"><h4><span>（自備一套服裝含造型妝髮）</span></h4>
+												</li>								
+												<li><h4><span>波翼 FB 宣傳<span class="big">2</span>則</span></h4></li>
+												<li><h4><span>限時動態 宣傳<span class="big">2</span>則</span></h4>
+												</li>
+												<li><h4><span>完整 ig 行銷</span></h4>
+												</li>
+												<li><h4><span>60 秒短影片拍攝<span class="big">1</span>則</span></h4>
+												</li>
+												<li><h4><span>Line@ 靜態訊息<span class="big">1</span>則</span></h4>
+												</li>
+												<li><h4><span>波翼快訊<span class="big">1</span>則 </span></h4>
+												</li>
+												<li><h4><span>新聞聯播網<span class="big">1</span>則</span></h4>
+												</li>
+												<li class="sub-line"><h4>
+													<span>（<span class="small">3</span>家媒體含Yahoo）</span></h4>
+												</li>
+												
+											</ul>							
+										</div>
+										
+									</div>
+									<div class="btn_wrap">
+										<a href="order_form_03.html#form_step_03">
+											<button class="btn_primary">購買</button>
+										</a>
+									</div>
+							</div>
+										
 					</div>
-				</div>
-				
-				<div class="tab-panel panel-buyer">
-					<h3>約定約款事項：</h3>
-					<ol>
-						<li>加入本管理服務者須保證所提供予本公司的所有實體作品與資料均不侵犯任何第三方權 益，亦未涉及任何違法情事。若日後因此產生侵權或相關法律責任，均由當事人自行承擔，本公司不負任何連帶責任。</li>
-					</ol>					
-					<label for="agree_buyer_chkbox">
-						<input type="checkbox" id="agree_buyer_chkbox" />
-						<span>同意並申請諮詢服務</span>
-					</label>
-					<div class="btn_wrap">
-						<a target="_blank" href="https://line.me/R/ti/p/@981hxtxf?oat_content=url">
-							<button type="button" class="btn_primary">同意並下一步</button>
-						</a>
+						
 					</div>
-				</div>
+					
+					<div class="tab-panel panel-plan_b">
+						<h3>掃描費用依畫作尺寸計價：</h3>
+						<p>60 號以下 NT$1,200，60 號以上 NT$1,500，請輸入管理件數。</p>						
+						<form id="order_form_step_02" action="order_form_03.html#form_step_03" method="POST">
+							
+							<div>
+								<label><h4>130 CM X 89.5 CM以下</h4></label>
+								<input type="number" name="num_lower" value="0" min="0" step="1" inputmode="numeric">
+							</div>
+							<div>
+								<label><h4>130 CM X 89.5 CM以上</h4></label>
+								<input type="number" name="num_upper" value="0" min="0" step="1" inputmode="numeric">
+							</div>
+							<div class="btn_wrap">
+								<button type="reset" class="btn_secondary">清除數量</button>
+								<button type="submit" class="btn_primary">統計費用</button>
+							</div>
+						</form>						
+					</div>			
 				
-				<div class="tab-panel panel-collaborator">
-					<h3>約定約款事項：</h3>
-					<ol>
-						<li>想與我們合作？加入 LINE 由專人協助您開始洽談。</li>
-					</ol>
-					<div class="btn_wrap">
-						<a target="_blank" href="https://line.me/R/ti/p/@981hxtxf?oat_content=url">
-							<button type="button" class="btn_primary">申請諮詢服務</button>
-						</a>
+					<div class="tab-panel panel-plan_c">
+						<h3></h3>
+						<p>*立體作品需依建模難易度另行報價。進一步了解報價資訊</p>
+						
+						<div class="btn_wrap">
+							<a target="_blank" href="https://line.me/R/ti/p/@981hxtxf?oat_content=url">
+								<button type="button" class="btn_primary">加LINE好友報價</button>
+							</a>
+						</div>
 					</div>
-				</div>
-				
 				</div>							
-			</div>		
+			</div>
+			
 		</div>	
 	</section>
-	<!-- STEP 01: 區塊結束 -->
-
+	<!-- STEP 02: 區塊結束 -->
+	
+	<!-- ----------------------------------------------------------------------------------------------------------------- -->
+	
 	
 </main>	
 

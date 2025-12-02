@@ -154,8 +154,8 @@
 			<div class="container">
 				<ol>
 					<li class="active"><a href="order_form_01.html#form_step_01"><span class="num">1</span><span>確認需求</span></a></li>
-					<li><a href="order_form_02.html#form_step_02"><span class="num">2</span><span>選擇方案</span></a></li>
-					<li><a href="order_form_03.html#form_step_03"><span class="num">3</span><span>支付款項</span></a></li>
+					<li class="active"><a href="order_form_02.html#form_step_02"><span class="num">2</span><span>選擇方案</span></a></li>
+					<li class="active"><a href="order_form_03.html#form_step_03"><span class="num">3</span><span>支付款項</span></a></li>
 					<li><a href="order_form_04.html#form_step_04"><span class="num">4</span><span>填寫資料</span></a></li>
 					<li><a href="order_form_05.html#form_step_05"><span class="num">5</span><span>審查資格</span></a></li>
 				 </ol>
@@ -164,78 +164,61 @@
 		<!-- 填單5步驟: 區塊結束 -->
 	
 	
-
 	
+	<!-- ----------------------------------------------------------------------------------------------------------------- -->
 	
-	<!-- STEP 01: 區塊開始 -->
-	<section id="form_step_01" class="form_step_01">
+	<!-- STEP 03: 區塊開始 -->
+	<!-- 方案付款資訊依使用者STEP02選擇 -->
+	<section id="form_step_03" class="form_step_03">
 		<div class="container">
 		
-			<h2>請確認您的需求</h2>
+			<h2>支付款項</h2>	
 			
-			<div class="tab-container">
-				<input type="radio" name="role" id="artist" value="artist" checked />
-				<label for="artist"><h3>藝術創作者</h3></label>
+			<form id="order_form_step_03" action="order_form_04.html#form_step_04" method="POST">
 			
-				<input type="radio" name="role" id="buyer" value="buyer" />
-				<label for="buyer"><h3>收藏家</h3></label>
-				
-				<input type="radio" name="role" id="collaborator" value="collaborator" />
-				<label for="collaborator"><h3>我想談合作</h3></label>
-			
-				<div class="panels-wrapper">
-				<div class="tab-panel panel-artist">
-					<h3>約定約款事項：</h3>
-					<ol>
-						<li>加入本服務即視為同意授權作品之圖像供 波翼藝術中心 用於管理與展示用途。但此授權不包含著作權及任何形式的商業使用。如需進行其他商業授權，雙方須另行簽訂授權合約。</li>
-						<li>虛擬藝術展間維護期為交付後起算一年，包含金流設定與預約鑒賞功能，線上交易金 流手續費 15%。</li>
-						<li>加入本服務者須保證所提供予本公司的所有實體作品與資料均不侵犯任何第三方權益，亦未涉及任何違法情事。若日後因此產生侵權或相關法律責任，均由當事人自行承擔，本公司不負任何連帶責任。</li>
-					</ol>					
-					<label for="agree_artist_chkbox">
-						<input type="checkbox" id="agree_artist_chkbox" />
-						<span>我已閱讀並同意服務條款</span>
-					</label>
-					<div class="btn_wrap">
-						<a href="order_form_02.html#form_step_02">
-							<button type="button" class="btn_primary">同意並下一步</button>
-						</a>
+				<div class="form_confirm">
+					<div class="inline">
+						<label><h4>訂單編號 </h4></label>
+						<input type="text" name="order_no" readonly value="20251126000001">
+					</div>
+					<div class="inline">
+						<label><h4>方案名稱 </h4></label>
+						<input type="text" name="order_plan" readonly value="單件掃描管理方案：畫作">
+					</div>
+					<div class="inline">
+						<label><h4>應付金額 </h4></label>
+						<input type="text" name="order_amount" readonly value="NT 3,600">
 					</div>
 				</div>
-				
-				<div class="tab-panel panel-buyer">
-					<h3>約定約款事項：</h3>
-					<ol>
-						<li>加入本管理服務者須保證所提供予本公司的所有實體作品與資料均不侵犯任何第三方權 益，亦未涉及任何違法情事。若日後因此產生侵權或相關法律責任，均由當事人自行承擔，本公司不負任何連帶責任。</li>
-					</ol>					
-					<label for="agree_buyer_chkbox">
-						<input type="checkbox" id="agree_buyer_chkbox" />
-						<span>同意並申請諮詢服務</span>
-					</label>
-					<div class="btn_wrap">
-						<a target="_blank" href="https://line.me/R/ti/p/@981hxtxf?oat_content=url">
-							<button type="button" class="btn_primary">同意並下一步</button>
-						</a>
-					</div>
+			
+			
+			
+					
+				<div>
+					<label><h4>姓名 <span class="required">*</span></h4></label>
+					<input type="text" name="chinese_name" required>
+				</div>
+				<div>
+					<label><h4>行動電話 <span class="required">*</span></h4></label>
+					<input type="tel" name="phone" required>
+				</div>
+				<div class="inline">
+					<label><h4>簡訊碼 </h4></label>
+					<input type="number" name="code"><button type="button" class="btn_primary">寄送簡訊碼</button>
+				</div>
+				<div class="btn_wrap">
+					<a href="order_form_02.html#form_step_02">
+						<button type="button" class="btn_secondary">上一步</button>
+					</a>
+					<button type="submit" class="btn_primary">付款</button>
 				</div>
 				
-				<div class="tab-panel panel-collaborator">
-					<h3>約定約款事項：</h3>
-					<ol>
-						<li>想與我們合作？加入 LINE 由專人協助您開始洽談。</li>
-					</ol>
-					<div class="btn_wrap">
-						<a target="_blank" href="https://line.me/R/ti/p/@981hxtxf?oat_content=url">
-							<button type="button" class="btn_primary">申請諮詢服務</button>
-						</a>
-					</div>
-				</div>
-				
-				</div>							
-			</div>		
+			</form>		
 		</div>	
 	</section>
-	<!-- STEP 01: 區塊結束 -->
+	<!-- STEP 03: 區塊結束 -->
 
+	<!-- ----------------------------------------------------------------------------------------------------------------- -->
 	
 </main>	
 

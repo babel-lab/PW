@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Flip Viewer Demo v14</title>
+  <link rel="stylesheet" href="./css/pdf-flip-viewer-v15.css" />
+</head>
+<body>
+  <main class="demo-page">
+    <h1>PDF Flip Viewer Demo</h1>
+    <p class="demo-note">
+      PDF：<a id="openPdfLink" href="./pdf/2024-pdf1.pdf">2024-第九屆公開賽.pdf</a>
+    </p>
+
+    <div id="pdfViewer"></div>
+  </main>
+
+  <script type="module">
+    import { createPdfFlipViewer } from './js/pdf-flip-viewer-v15.js';
+
+    const pdfUrl = './pdf/sample.pdf';
+    const viewer = createPdfFlipViewer({
+      mount: '#pdfViewer',
+      pdfUrl,
+      title: '2024-第九屆公開賽.pdf',
+      allowDownload: false,
+      allowShare: false,
+      showCard: false
+    });
+
+    document.querySelector('#openPdfLink').addEventListener('click', (event) => {
+      event.preventDefault();
+      viewer.open();
+    });
+  </script>
+</body>
+</html>

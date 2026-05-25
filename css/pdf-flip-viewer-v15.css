@@ -15,12 +15,6 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--pfv-color-text);
-  background: #eef2f7;
-}
 
 .demo-page {
   width: min(1080px, calc(100% - 32px));
@@ -236,6 +230,7 @@ body {
   color: #fff;
   font-size: 28px;
   cursor: pointer;
+  padding: 10px 12px 10px 16px;
 }
 
 .pfv-nav--prev {
@@ -313,10 +308,11 @@ body {
     width: 42px;
     height: 42px;
     font-size: 24px;
+	padding: 10px 12px 10px 16px;
   }
 
   .pfv-nav--prev {
-    left: 6px;
+    left: 6px;	
   }
 
   .pfv-nav--next {
@@ -414,7 +410,7 @@ body {
 
   .pfv-status {
     min-width: 0;
-    width: min(280px, calc(100vw - 48px));
+    width: min(220px, calc(100vw - 48px));
     padding-inline: 14px;
   }
 }
@@ -662,7 +658,7 @@ body {
   min-width: 42px;
   width: 42px;
   height: 42px;
-  padding: 0;
+  padding: 10px 16px 10px 12px;
   font-size: 20px;
   line-height: 1;
 }

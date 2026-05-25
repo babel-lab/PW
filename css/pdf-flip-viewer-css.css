@@ -1,0 +1,678 @@
+:root {
+  --pfv-color-bg: #0f172a;
+  --pfv-color-surface: #ffffff;
+  --pfv-color-surface-soft: #f8fafc;
+  --pfv-color-text: #0f172a;
+  --pfv-color-muted: #64748b;
+  --pfv-color-primary: #2563eb;
+  --pfv-color-danger: #ef4444;
+  --pfv-shadow-card: 0 12px 30px rgba(15, 23, 42, 0.16);
+  --pfv-radius-lg: 18px;
+  --pfv-radius-md: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.demo-page {
+  width: min(1080px, calc(100% - 32px));
+  margin: 40px auto;
+}
+
+.demo-note {
+  color: var(--pfv-color-muted);
+  line-height: 1.7;
+}
+
+.pfv-card {
+  width: min(360px, 100%);
+  background: var(--pfv-color-surface);
+  border-radius: var(--pfv-radius-lg);
+  box-shadow: var(--pfv-shadow-card);
+  overflow: hidden;
+}
+
+.pfv-card__cover-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(135deg, #e2e8f0, #f8fafc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pfv-card__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.pfv-card__loading,
+.pfv-card__error {
+  padding: 16px;
+  text-align: center;
+  color: var(--pfv-color-muted);
+  line-height: 1.6;
+}
+
+.pfv-card__error {
+  color: var(--pfv-color-danger);
+}
+
+.pfv-card__body {
+  padding: 16px;
+}
+
+.pfv-card__title {
+  margin: 0 0 12px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.pfv-button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--pfv-color-primary);
+  color: #fff;
+  transition: transform .16s ease, opacity .16s ease;
+}
+
+.pfv-button:hover {
+  transform: translateY(-1px);
+}
+
+.pfv-button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pfv-button--ghost {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.22);
+}
+
+.pfv-button--tool {
+  min-width: 42px;
+  padding-inline: 12px;
+}
+
+.pfv-button--light {
+  background: #fff;
+  color: var(--pfv-color-text);
+}
+
+.pfv-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(2, 6, 23, .88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.pfv-modal__dialog {
+  width: min(1180px, 100%);
+  height: min(860px, calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pfv-modal__header,
+.pfv-modal__footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.pfv-modal__header {
+  justify-content: space-between;
+}
+
+.pfv-modal__title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.pfv-modal__body {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pfv-viewport {
+  width: min(100%, 980px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.pfv-transform {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  transition: transform .18s ease;
+  will-change: transform;
+}
+
+.pfv-transform.is-pannable {
+  cursor: grab;
+}
+
+.pfv-transform.is-panning {
+  cursor: grabbing;
+  transition: none;
+}
+
+.pfv-book-wrap {
+  width: min(100%, 980px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pfv-book {
+  width: 100%;
+  height: 100%;
+}
+
+.pfv-page {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0,0,0,.28);
+}
+
+.pfv-page canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.pfv-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.24);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 10px 12px 10px 16px;
+}
+
+.pfv-nav--prev {
+  left: 0;
+}
+
+.pfv-nav--next {
+  right: 0;
+}
+
+.pfv-modal__footer {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pfv-page-info {
+  min-width: 86px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.pfv-zoom-info {
+  min-width: 58px;
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+}
+
+.pfv-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.22);
+  font-weight: 700;
+}
+
+.pfv-status {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  line-height: 1.7;
+  padding: 16px;
+}
+
+@media (max-width: 767px) {
+  .demo-page {
+    width: min(100% - 24px, 560px);
+    margin: 24px auto;
+  }
+
+  .pfv-modal {
+    padding: 12px;
+  }
+
+  .pfv-modal__dialog {
+    height: calc(100vh - 24px);
+  }
+
+  .pfv-modal__header {
+    align-items: flex-start;
+  }
+
+  .pfv-modal__title {
+    font-size: 16px;
+  }
+
+  .pfv-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+	padding: 10px 12px 10px 16px;
+  }
+
+  .pfv-nav--prev {
+    left: 6px;	
+  }
+
+  .pfv-nav--next {
+    right: 6px;
+  }
+
+  .pfv-button,
+  .pfv-link {
+    min-height: 42px;
+    padding-inline: 14px;
+  }
+
+  .pfv-button--tool {
+    min-width: 40px;
+    padding-inline: 12px;
+  }
+}
+
+/* v3 loading state: keep the viewer on the first screen while pages render in memory. */
+.pfv-modal__dialog.is-loading .pfv-viewport {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pfv-book-wrap.is-preparing {
+  visibility: hidden;
+}
+
+.pfv-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 220px;
+  min-height: 56px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, .78);
+  border: 1px solid rgba(255, 255, 255, .2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .25);
+}
+
+.pfv-status__spinner {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 3px solid rgba(255, 255, 255, .32);
+  border-top-color: #fff;
+  animation: pfv-spin .8s linear infinite;
+}
+
+.pfv-status__text {
+  font-weight: 700;
+}
+
+@keyframes pfv-spin {
+  to { transform: rotate(360deg); }
+}
+
+.pfv-toast {
+  position: absolute;
+  left: 50%;
+  bottom: 76px;
+  transform: translate(-50%, 12px);
+  z-index: 3;
+  max-width: min(420px, calc(100% - 32px));
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .96);
+  color: var(--pfv-color-text);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .3);
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+}
+
+.pfv-toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.pfv-nav:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+  .pfv-toast {
+    bottom: 96px;
+    border-radius: 18px;
+  }
+
+  .pfv-status {
+    min-width: 0;
+    width: min(220px, calc(100vw - 48px));
+    padding-inline: 14px;
+  }
+}
+
+
+/* v5: desktop uses book-spread mode. The first PDF page is treated as cover; following pages are paired by PageFlip. */
+@media (min-width: 768px) {
+  .pfv-viewport {
+    width: min(100%, 1040px);
+  }
+
+  .pfv-book-wrap {
+    width: min(100%, 980px);
+  }
+}
+
+
+/* v9: bottom thumbnail strip. It is a normal row inside the modal, not an absolute side drawer. */
+.pfv-thumb-strip[hidden] {
+  display: none !important;
+}
+
+.pfv-thumb-strip {
+  flex: 0 0 auto;
+  width: 100%;
+  max-height: 188px;
+  padding: 10px 12px 12px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, .94);
+  border: 1px solid rgba(255, 255, 255, .16);
+  color: #fff;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .32);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .16s ease, transform .16s ease;
+}
+
+.pfv-thumb-strip.is-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pfv-thumb-strip__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.pfv-thumb-strip__title {
+  font-size: 15px;
+  letter-spacing: .04em;
+}
+
+.pfv-button--small {
+  min-height: 32px;
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.pfv-thumb-strip__body {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.pfv-thumb-strip__arrow {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.pfv-thumb-strip__arrow:hover {
+  background: rgba(255, 255, 255, .2);
+}
+
+.pfv-thumb-strip__track {
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  padding: 0 4px 8px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pfv-thumb-strip__track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.pfv-thumb-strip__track::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, .1);
+  border-radius: 999px;
+}
+
+.pfv-thumb-strip__track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .38);
+  border-radius: 999px;
+}
+
+.pfv-thumb-strip__item {
+  appearance: none;
+  flex: 0 0 92px;
+  width: 92px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 12px;
+  padding: 6px;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: border-color .16s ease, background .16s ease, transform .16s ease;
+  scroll-snap-align: center;
+}
+
+.pfv-thumb-strip__item:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, .14);
+}
+
+.pfv-thumb-strip__item.is-active {
+  border-color: rgba(96, 165, 250, .95);
+  background: rgba(37, 99, 235, .32);
+}
+
+.pfv-thumb-strip__image {
+  display: block;
+  width: 100%;
+  height: 96px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.pfv-thumb-strip__number {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .pfv-thumb-strip {
+    max-height: 162px;
+    padding: 8px 8px 10px;
+    border-radius: 14px;
+  }
+
+  .pfv-thumb-strip__header {
+    margin-bottom: 6px;
+  }
+
+  .pfv-thumb-strip__body {
+    grid-template-columns: 34px minmax(0, 1fr) 34px;
+    gap: 6px;
+  }
+
+  .pfv-thumb-strip__arrow {
+    border-radius: 12px;
+    font-size: 24px;
+  }
+
+  .pfv-thumb-strip__track {
+    gap: 8px;
+    padding-bottom: 7px;
+  }
+
+  .pfv-thumb-strip__item {
+    flex-basis: 74px;
+    width: 74px;
+    padding: 5px;
+  }
+
+  .pfv-thumb-strip__image {
+    height: 78px;
+  }
+}
+
+
+/* v12: fit PDF at 100% into the real visible RWD area. */
+.pfv-modal__body {
+  width: 100%;
+}
+
+.pfv-viewport,
+.pfv-book-wrap,
+.pfv-book {
+  max-width: 100%;
+}
+
+/* v12: the quick-jump panel is a compact bottom strip only; no title/close row. */
+.pfv-thumb-strip {
+  max-height: 148px;
+  padding: 10px 12px;
+}
+
+.pfv-thumb-strip__header {
+  display: none !important;
+}
+
+.pfv-thumb-strip__body {
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+}
+
+@media (max-width: 767px) {
+  .pfv-modal__body {
+    min-height: 0;
+  }
+
+  .pfv-viewport {
+    width: 100%;
+  }
+
+  .pfv-book-wrap {
+    width: 100%;
+  }
+
+  .pfv-thumb-strip {
+    max-height: 134px;
+    padding: 8px;
+  }
+
+  .pfv-modal__footer {
+    gap: 8px;
+  }
+}
+
+
+/* v12: icon-only controls and titleless modal header. */
+.pfv-modal__header {
+  justify-content: flex-end;
+}
+
+.pfv-button--icon {
+  min-width: 42px;
+  width: 42px;
+  height: 42px;
+  padding: 10px 16px 10px 12px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.pfv-modal__title:empty {
+  display: none;
+}
+
+
+/* v15: avoid first-page top jump on narrow layouts by keeping the PageFlip area centered. */
+@media (max-width: 767px) {
+  .pfv-transform,
+  .pfv-book-wrap {
+    align-items: center;
+    justify-content: center;
+  }
+}
